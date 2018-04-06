@@ -4,7 +4,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.3.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/rtfd/sphinx_rtd_theme/archive/0.3.0.tar.gz
 Source0  : https://github.com/rtfd/sphinx_rtd_theme/archive/0.3.0.tar.gz
 Summary  : No detailed summary available
@@ -65,12 +65,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522969468
+export SOURCE_DATE_EPOCH=1523041183
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1522969468
+export SOURCE_DATE_EPOCH=1523041183
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
