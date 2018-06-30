@@ -4,13 +4,14 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.4.0
-Release  : 11
+Release  : 12
 URL      : https://github.com/rtfd/sphinx_rtd_theme/archive/0.4.0.tar.gz
 Source0  : https://github.com/rtfd/sphinx_rtd_theme/archive/0.4.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 Requires: sphinx_rtd_theme-python3
+Requires: sphinx_rtd_theme-license
 Requires: sphinx_rtd_theme-python
 Requires: Sphinx
 BuildRequires : pbr
@@ -18,9 +19,11 @@ BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 BuildRequires : tox
 BuildRequires : virtualenv
 
@@ -36,6 +39,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the sphinx_rtd_theme package.
+
+
+%package license
+Summary: license components for the sphinx_rtd_theme package.
+Group: Default
+
+%description license
+license components for the sphinx_rtd_theme package.
 
 
 %package python
@@ -64,13 +75,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528377483
+export SOURCE_DATE_EPOCH=1530374477
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1528377483
+export SOURCE_DATE_EPOCH=1530374477
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/sphinx_rtd_theme
+cp LICENSE %{buildroot}/usr/share/doc/sphinx_rtd_theme/LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -83,6 +96,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/sphinx_rtd_theme/LICENSE
 
 %files python
 %defattr(-,root,root,-)
