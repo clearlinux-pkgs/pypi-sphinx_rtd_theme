@@ -4,7 +4,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.4.0
-Release  : 15
+Release  : 16
 URL      : https://github.com/rtfd/sphinx_rtd_theme/archive/0.4.0.tar.gz
 Source0  : https://github.com/rtfd/sphinx_rtd_theme/archive/0.4.0.tar.gz
 Summary  : No detailed summary available
