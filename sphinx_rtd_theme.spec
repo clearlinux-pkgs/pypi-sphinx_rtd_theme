@@ -5,27 +5,21 @@
 # Source0 file verified with key 0xFEEF9FC2DD21D271 (security@readthedocs.org)
 #
 Name     : sphinx_rtd_theme
-Version  : 0.4.1
-Release  : 17
-URL      : https://files.pythonhosted.org/packages/f2/b0/a1933d792b806118ddbca6699f2e2c844d9b1b16e84a89d7effd5cd2a800/sphinx_rtd_theme-0.4.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/f2/b0/a1933d792b806118ddbca6699f2e2c844d9b1b16e84a89d7effd5cd2a800/sphinx_rtd_theme-0.4.1.tar.gz
-Source99 : https://files.pythonhosted.org/packages/f2/b0/a1933d792b806118ddbca6699f2e2c844d9b1b16e84a89d7effd5cd2a800/sphinx_rtd_theme-0.4.1.tar.gz.asc
+Version  : 0.4.2
+Release  : 18
+URL      : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
+Source99 : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz.asc
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT
-Requires: sphinx_rtd_theme-python3
-Requires: sphinx_rtd_theme-license
-Requires: sphinx_rtd_theme-python
+Requires: sphinx_rtd_theme-license = %{version}-%{release}
+Requires: sphinx_rtd_theme-python = %{version}-%{release}
+Requires: sphinx_rtd_theme-python3 = %{version}-%{release}
 Requires: Sphinx
 BuildRequires : Sphinx
+BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
 
 %description
 **************************
@@ -52,7 +46,7 @@ license components for the sphinx_rtd_theme package.
 %package python
 Summary: python components for the sphinx_rtd_theme package.
 Group: Default
-Requires: sphinx_rtd_theme-python3
+Requires: sphinx_rtd_theme-python3 = %{version}-%{release}
 
 %description python
 python components for the sphinx_rtd_theme package.
@@ -68,22 +62,22 @@ python3 components for the sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-0.4.1
+%setup -q -n sphinx_rtd_theme-0.4.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532766383
+export SOURCE_DATE_EPOCH=1538748003
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1532766383
+export SOURCE_DATE_EPOCH=1538748003
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/sphinx_rtd_theme
-cp LICENSE %{buildroot}/usr/share/doc/sphinx_rtd_theme/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
+cp LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -98,8 +92,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/sphinx_rtd_theme/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
 
 %files python
 %defattr(-,root,root,-)
