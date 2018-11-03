@@ -6,7 +6,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.4.2
-Release  : 19
+Release  : 20
 URL      : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
 Source99 : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz.asc
@@ -69,12 +69,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538748003
+export SOURCE_DATE_EPOCH=1541278905
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1538748003
+export SOURCE_DATE_EPOCH=1541278905
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
 cp LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
