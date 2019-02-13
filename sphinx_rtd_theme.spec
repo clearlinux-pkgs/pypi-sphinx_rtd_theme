@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xFEEF9FC2DD21D271 (security@readthedocs.org)
 #
 Name     : sphinx_rtd_theme
-Version  : 0.4.2
-Release  : 21
-URL      : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz
-Source99 : https://files.pythonhosted.org/packages/db/37/f57c7a99827aa03fa8efc24037ff9990deb1c6a7bb2f23c388bd36b8748a/sphinx_rtd_theme-0.4.2.tar.gz.asc
+Version  : 0.4.3
+Release  : 22
+URL      : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
+Source99 : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz.asc
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT
@@ -23,8 +23,8 @@ BuildRequires : buildreq-distutils3
 
 %description
 **************************
-        Read the Docs Sphinx Theme
-        **************************
+Read the Docs Sphinx Theme
+**************************
 
 %package legacypython
 Summary: legacypython components for the sphinx_rtd_theme package.
@@ -62,19 +62,19 @@ python3 components for the sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-0.4.2
+%setup -q -n sphinx_rtd_theme-0.4.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541278905
+export SOURCE_DATE_EPOCH=1550027666
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1541278905
+export SOURCE_DATE_EPOCH=1550027666
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
 cp LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
