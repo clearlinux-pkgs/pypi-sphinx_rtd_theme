@@ -6,7 +6,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.4.3
-Release  : 24
+Release  : 25
 URL      : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
 Source99 : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz.asc
@@ -18,22 +18,12 @@ Requires: sphinx_rtd_theme-python = %{version}-%{release}
 Requires: sphinx_rtd_theme-python3 = %{version}-%{release}
 Requires: Sphinx
 BuildRequires : Sphinx
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 
 %description
 **************************
 Read the Docs Sphinx Theme
 **************************
-
-%package legacypython
-Summary: legacypython components for the sphinx_rtd_theme package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the sphinx_rtd_theme package.
-
 
 %package license
 Summary: license components for the sphinx_rtd_theme package.
@@ -69,27 +59,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551038692
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554329003
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1551038692
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
 cp LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)
