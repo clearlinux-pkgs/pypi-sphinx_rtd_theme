@@ -6,10 +6,10 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 0.4.3
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz
-Source99 : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz.asc
+Source1  : https://files.pythonhosted.org/packages/ed/73/7e550d6e4cf9f78a0e0b60b9d93dba295389c3d271c034bf2ea3463a79f9/sphinx_rtd_theme-0.4.3.tar.gz.asc
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT
@@ -24,6 +24,56 @@ BuildRequires : buildreq-distutils3
 **************************
 Read the Docs Sphinx Theme
 **************************
+
+.. image:: https://img.shields.io/pypi/v/sphinx_rtd_theme.svg
+   :target: https://pypi.python.org/pypi/sphinx_rtd_theme
+   :alt: Pypi Version 
+.. image:: https://travis-ci.org/rtfd/sphinx_rtd_theme.svg?branch=master
+   :target: https://travis-ci.org/rtfd/sphinx_rtd_theme
+   :alt: Build Status
+.. image:: https://img.shields.io/pypi/l/sphinx_rtd_theme.svg
+   :target: https://pypi.python.org/pypi/sphinx_rtd_theme/
+   :alt: License
+.. image:: https://readthedocs.org/projects/sphinx-rtd-theme/badge/?version=latest
+  :target: http://sphinx-rtd-theme.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
+The ``sphinx_rtd_theme`` is a sphinx_ theme designed to look modern and be mobile-friendly.
+This theme is primarily focused to be used on readthedocs.org_ but can work with your
+own sphinx projects. To read more and see a working demo_ head over to readthedocs.org_.
+
+.. _sphinx: http://www.sphinx-doc.org
+.. _readthedocs.org: http://www.readthedocs.org
+.. _demo: https://sphinx-rtd-theme.readthedocs.io/en/latest/
+
+
+Installing
+==========
+
+The theme is distributed on PyPI_ and can be installed with pip::
+
+   pip install sphinx_rtd_theme
+
+For more information read the full installing docs
+`here <https://sphinx-rtd-theme.readthedocs.io/en/latest/installing.html>`__.
+
+.. _PyPI: https://pypi.python.org/pypi/sphinx_rtd_theme
+
+
+Configuration
+=============
+
+The ``sphinx_rtd_theme`` is highly customizable on both the page level and on a global level.
+To see all the possible configuration options read the configuring docs
+`here <https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html>`__.
+
+
+Contributing
+============
+
+If you would like to help improve the theme or have more control
+over the theme in case of a fork please read our contributing guide
+`here <https://sphinx-rtd-theme.readthedocs.io/en/latest/contributing.html>`__.
 
 %package license
 Summary: license components for the sphinx_rtd_theme package.
@@ -46,6 +96,7 @@ python components for the sphinx_rtd_theme package.
 Summary: python3 components for the sphinx_rtd_theme package.
 Group: Default
 Requires: python3-core
+Provides: pypi(sphinx-rtd-theme)
 
 %description python3
 python3 components for the sphinx_rtd_theme package.
@@ -53,13 +104,20 @@ python3 components for the sphinx_rtd_theme package.
 
 %prep
 %setup -q -n sphinx_rtd_theme-0.4.3
+cd %{_builddir}/sphinx_rtd_theme-0.4.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1554329003
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1582918126
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -67,7 +125,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
-cp LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
+cp %{_builddir}/sphinx_rtd_theme-0.4.3/LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/a1476f264c3622ce6548208ab116bf128809ddf7
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -78,7 +136,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/sphinx_rtd_theme/LICENSE
+/usr/share/package-licenses/sphinx_rtd_theme/a1476f264c3622ce6548208ab116bf128809ddf7
 
 %files python
 %defattr(-,root,root,-)
