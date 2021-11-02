@@ -6,7 +6,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 1.0.0
-Release  : 40
+Release  : 41
 URL      : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz.asc
@@ -64,13 +64,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1631636614
+export SOURCE_DATE_EPOCH=1635877765
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . docutils
 python3 setup.py build
 
 %install
@@ -80,6 +81,7 @@ mkdir -p %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme
 cp %{_builddir}/sphinx_rtd_theme-1.0.0/LICENSE %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/a1476f264c3622ce6548208ab116bf128809ddf7
 cp %{_builddir}/sphinx_rtd_theme-1.0.0/OFL-License.txt %{buildroot}/usr/share/package-licenses/sphinx_rtd_theme/515c9e4e8cd9008dd8c0685638dfe9186aaad429
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} docutils
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
