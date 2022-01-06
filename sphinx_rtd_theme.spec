@@ -6,7 +6,7 @@
 #
 Name     : sphinx_rtd_theme
 Version  : 1.0.0
-Release  : 42
+Release  : 43
 URL      : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz.asc
@@ -16,11 +16,9 @@ License  : MIT OFL-1.1
 Requires: sphinx_rtd_theme-license = %{version}-%{release}
 Requires: sphinx_rtd_theme-python = %{version}-%{release}
 Requires: sphinx_rtd_theme-python3 = %{version}-%{release}
-Requires: Sphinx
-Requires: docutils
-BuildRequires : Sphinx
 BuildRequires : buildreq-distutils3
-BuildRequires : docutils
+BuildRequires : pypi(docutils)
+BuildRequires : pypi(sphinx)
 
 %description
 Read the Docs Sphinx Theme
@@ -64,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635877765
+export SOURCE_DATE_EPOCH=1641427360
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
