@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xFEEF9FC2DD21D271 (security@readthedocs.org)
 #
 Name     : pypi-sphinx_rtd_theme
-Version  : 1.0.0
-Release  : 51
-URL      : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz
-Source1  : https://files.pythonhosted.org/packages/1c/32/580309c9fd5b1892c6616ce814710c6b14423e98bf1c101bf2c710433cee/sphinx_rtd_theme-1.0.0.tar.gz.asc
+Version  : 1.1.1
+Release  : 52
+URL      : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz.asc
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT OFL-1.1
@@ -54,10 +54,10 @@ python3 components for the pypi-sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-1.0.0
-cd %{_builddir}/sphinx_rtd_theme-1.0.0
+%setup -q -n sphinx_rtd_theme-1.1.1
+cd %{_builddir}/sphinx_rtd_theme-1.1.1
 pushd ..
-cp -a sphinx_rtd_theme-1.0.0 buildavx2
+cp -a sphinx_rtd_theme-1.1.1 buildavx2
 popd
 
 %build
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656369880
+export SOURCE_DATE_EPOCH=1667844977
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -89,8 +89,8 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-sphinx_rtd_theme
-cp %{_builddir}/sphinx_rtd_theme-1.0.0/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sphinx_rtd_theme/a1476f264c3622ce6548208ab116bf128809ddf7
-cp %{_builddir}/sphinx_rtd_theme-1.0.0/OFL-License.txt %{buildroot}/usr/share/package-licenses/pypi-sphinx_rtd_theme/515c9e4e8cd9008dd8c0685638dfe9186aaad429
+cp %{_builddir}/sphinx_rtd_theme-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sphinx_rtd_theme/a1476f264c3622ce6548208ab116bf128809ddf7 || :
+cp %{_builddir}/sphinx_rtd_theme-%{version}/OFL-License.txt %{buildroot}/usr/share/package-licenses/pypi-sphinx_rtd_theme/515c9e4e8cd9008dd8c0685638dfe9186aaad429 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} docutils
 echo ----[ mark ]----
