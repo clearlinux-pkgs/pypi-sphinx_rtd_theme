@@ -6,7 +6,7 @@
 #
 Name     : pypi-sphinx_rtd_theme
 Version  : 1.1.1
-Release  : 53
+Release  : 54
 URL      : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
 Source1  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz.asc
