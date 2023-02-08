@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xFEEF9FC2DD21D271 (security@readthedocs.org)
 #
 Name     : pypi-sphinx_rtd_theme
-Version  : 1.1.1
-Release  : 54
-URL      : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz
-Source1  : https://files.pythonhosted.org/packages/5e/99/bce1a116ce6cfdcfeffe0a8e30139134dd5dda1269ae8a2995b7c5156d71/sphinx_rtd_theme-1.1.1.tar.gz.asc
+Version  : 1.2.0
+Release  : 55
+URL      : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz.asc
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT OFL-1.1
@@ -51,16 +51,17 @@ Requires: python3-core
 Provides: pypi(sphinx_rtd_theme)
 Requires: pypi(docutils)
 Requires: pypi(sphinx)
+Requires: pypi(sphinxcontrib_jquery)
 
 %description python3
 python3 components for the pypi-sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-1.1.1
-cd %{_builddir}/sphinx_rtd_theme-1.1.1
+%setup -q -n sphinx_rtd_theme-1.2.0
+cd %{_builddir}/sphinx_rtd_theme-1.2.0
 pushd ..
-cp -a sphinx_rtd_theme-1.1.1 buildavx2
+cp -a sphinx_rtd_theme-1.2.0 buildavx2
 popd
 
 %build
@@ -68,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672419417
+export SOURCE_DATE_EPOCH=1675885560
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
