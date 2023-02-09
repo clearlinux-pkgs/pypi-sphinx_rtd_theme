@@ -6,7 +6,7 @@
 #
 Name     : pypi-sphinx_rtd_theme
 Version  : 1.2.0
-Release  : 55
+Release  : 56
 URL      : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz
 Source1  : https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz.asc
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675885560
+export SOURCE_DATE_EPOCH=1675920101
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -78,6 +78,7 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . docutils
 pypi-dep-fix.py . sphinx
+pypi-dep-fix.py . sphinxcontrib-jquery
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -88,6 +89,7 @@ export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pypi-dep-fix.py . docutils
 pypi-dep-fix.py . sphinx
+pypi-dep-fix.py . sphinxcontrib-jquery
 python3 setup.py build
 
 popd
@@ -100,6 +102,7 @@ cp %{_builddir}/sphinx_rtd_theme-%{version}/OFL-License.txt %{buildroot}/usr/sha
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} docutils
 pypi-dep-fix.py %{buildroot} sphinx
+pypi-dep-fix.py %{buildroot} sphinxcontrib-jquery
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
