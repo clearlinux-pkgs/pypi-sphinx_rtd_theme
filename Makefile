@@ -1,5 +1,5 @@
 PKG_NAME := pypi-sphinx_rtd_theme
-URL = https://files.pythonhosted.org/packages/35/b4/40faec6790d4b08a6ef878feddc6ad11c3872b75f52273f1418c39f67cd6/sphinx_rtd_theme-1.2.0.tar.gz
+URL = https://files.pythonhosted.org/packages/66/86/7b2c3d15f44cb3ea2e1c54481494121d755081aa57a8076de3fa2be4d587/sphinx_rtd_theme-1.2.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
