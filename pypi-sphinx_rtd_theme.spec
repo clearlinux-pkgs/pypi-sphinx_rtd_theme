@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-sphinx_rtd_theme
-Version  : 1.2.2
-Release  : 57
-URL      : https://files.pythonhosted.org/packages/66/86/7b2c3d15f44cb3ea2e1c54481494121d755081aa57a8076de3fa2be4d587/sphinx_rtd_theme-1.2.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/66/86/7b2c3d15f44cb3ea2e1c54481494121d755081aa57a8076de3fa2be4d587/sphinx_rtd_theme-1.2.2.tar.gz
+Version  : 1.3.0
+Release  : 58
+URL      : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT OFL-1.1
@@ -23,9 +23,8 @@ BuildRequires : pypi(sphinxcontrib_jquery)
 %define debug_package %{nil}
 
 %description
-**************************
 Read the Docs Sphinx Theme
-**************************
+        **************************
 
 %package license
 Summary: license components for the pypi-sphinx_rtd_theme package.
@@ -58,10 +57,10 @@ python3 components for the pypi-sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-1.2.2
-cd %{_builddir}/sphinx_rtd_theme-1.2.2
+%setup -q -n sphinx_rtd_theme-1.3.0
+cd %{_builddir}/sphinx_rtd_theme-1.3.0
 pushd ..
-cp -a sphinx_rtd_theme-1.2.2 buildavx2
+cp -a sphinx_rtd_theme-1.3.0 buildavx2
 popd
 
 %build
@@ -69,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686333458
+export SOURCE_DATE_EPOCH=1692653069
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
