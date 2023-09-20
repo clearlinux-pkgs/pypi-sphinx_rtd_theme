@@ -5,7 +5,7 @@
 #
 Name     : pypi-sphinx_rtd_theme
 Version  : 1.3.0
-Release  : 59
+Release  : 60
 URL      : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
 Summary  : Read the Docs theme for Sphinx
@@ -68,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695157098
+export SOURCE_DATE_EPOCH=1695234041
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -78,6 +78,8 @@ export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . docutils
 pypi-dep-fix.py . sphinx
 pypi-dep-fix.py . sphinxcontrib-jquery
+pypi-dep-fix.py . docutils
+pypi-dep-fix.py . sphinxcontrib_jquery
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -89,6 +91,8 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pypi-dep-fix.py . docutils
 pypi-dep-fix.py . sphinx
 pypi-dep-fix.py . sphinxcontrib-jquery
+pypi-dep-fix.py . docutils
+pypi-dep-fix.py . sphinxcontrib_jquery
 python3 setup.py build
 
 popd
@@ -102,6 +106,8 @@ python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} docutils
 pypi-dep-fix.py %{buildroot} sphinx
 pypi-dep-fix.py %{buildroot} sphinxcontrib-jquery
+pypi-dep-fix.py %{buildroot} docutils
+pypi-dep-fix.py %{buildroot} sphinxcontrib_jquery
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
