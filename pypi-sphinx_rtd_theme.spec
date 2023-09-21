@@ -5,7 +5,7 @@
 #
 Name     : pypi-sphinx_rtd_theme
 Version  : 1.3.0
-Release  : 61
+Release  : 62
 URL      : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/db/3e/477c5b3ed78b6818d673f63512db12ace8c89e83eb9eecc913f9e2cc8416/sphinx_rtd_theme-1.3.0.tar.gz
 Summary  : Read the Docs theme for Sphinx
@@ -21,7 +21,6 @@ BuildRequires : pypi(sphinxcontrib_jquery)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: deps.patch
 
 %description
 Read the Docs Sphinx Theme
@@ -60,7 +59,6 @@ python3 components for the pypi-sphinx_rtd_theme package.
 %prep
 %setup -q -n sphinx_rtd_theme-1.3.0
 cd %{_builddir}/sphinx_rtd_theme-1.3.0
-%patch -P 1 -p1
 pushd ..
 cp -a sphinx_rtd_theme-1.3.0 buildavx2
 popd
@@ -70,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695304523
+export SOURCE_DATE_EPOCH=1695313653
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
