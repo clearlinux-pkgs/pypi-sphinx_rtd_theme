@@ -7,7 +7,7 @@
 #
 Name     : pypi-sphinx_rtd_theme
 Version  : 2.0.0
-Release  : 65
+Release  : 66
 URL      : https://files.pythonhosted.org/packages/fe/33/2a35a9cdbfda9086bda11457bcc872173ab3565b16b6d7f6b3efaa6dc3d6/sphinx_rtd_theme-2.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/fe/33/2a35a9cdbfda9086bda11457bcc872173ab3565b16b6d7f6b3efaa6dc3d6/sphinx_rtd_theme-2.0.0.tar.gz
 Summary  : Read the Docs theme for Sphinx
