@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-sphinx_rtd_theme
-Version  : 3.0.0
-Release  : 67
-URL      : https://files.pythonhosted.org/packages/21/f8/2667f9cab89827528596588dd9de6f937f52e5c6e87e6f28ecb866955551/sphinx_rtd_theme-3.0.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/21/f8/2667f9cab89827528596588dd9de6f937f52e5c6e87e6f28ecb866955551/sphinx_rtd_theme-3.0.0.tar.gz
+Version  : 3.0.1
+Release  : 68
+URL      : https://files.pythonhosted.org/packages/55/ff/e24d14f397ce07a93d302be444d4da7953294f9b1be99497dc92f800ac7b/sphinx_rtd_theme-3.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/55/ff/e24d14f397ce07a93d302be444d4da7953294f9b1be99497dc92f800ac7b/sphinx_rtd_theme-3.0.1.tar.gz
 Summary  : Read the Docs theme for Sphinx
 Group    : Development/Tools
 License  : MIT OFL-1.1
@@ -60,10 +60,10 @@ python3 components for the pypi-sphinx_rtd_theme package.
 
 
 %prep
-%setup -q -n sphinx_rtd_theme-3.0.0
-cd %{_builddir}/sphinx_rtd_theme-3.0.0
+%setup -q -n sphinx_rtd_theme-3.0.1
+cd %{_builddir}/sphinx_rtd_theme-3.0.1
 pushd ..
-cp -a sphinx_rtd_theme-3.0.0 buildavx2
+cp -a sphinx_rtd_theme-3.0.1 buildavx2
 popd
 
 %build
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1728408426
+export SOURCE_DATE_EPOCH=1728483870
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
